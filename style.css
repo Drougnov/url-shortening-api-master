@@ -1,0 +1,9 @@
+.align-content{
+    --min: 0;
+    --max: 1440px;
+    display: grid;
+    grid-template-columns: minmax(var(--min),1fr) minmax(320px,var(--max)) minmax(var(--min),1fr);
+}
+.align-content > * {
+    grid-column: 2;
+}
