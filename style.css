@@ -10,7 +10,7 @@
     --very-dark-blue: hsl(255, 11%, 22%); /*headings*/
     --very-dark-violet: hsl(260, 8%, 14%);
     --cyan: hsl(180, 66%, 49%);
-    --dark-violet: hsl(257, 27%, 26%);
+    --dark-violet: hsl(257, 27%, 26%); /*boost*/
 }
 .align-content{
     --min: 0;
@@ -231,7 +231,6 @@ nav.active .hamburger::after{
 
 main{
     background: hsl(230, 25%, 95%);
-    padding: 0 1.5rem;
 }
 
 /*==========
@@ -243,7 +242,7 @@ main{
 ============*/
 
 main .stat{
-    padding: 5rem 0;
+    padding: 5rem 1.5rem;
     font-size: 1rem;
 }
 .stat h2{
@@ -254,11 +253,23 @@ main .stat{
     display: grid;
     gap: 6rem;
     margin-top: 6rem;
+    position: relative;
+}
+.stat__features::before{
+    position: absolute;
+    content: '';
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: .5rem;
+    height: 100%;
+    background: var(--cyan);
 }
 .stat__features .feature{
     font-size: 15px;
     background: white;
-    padding: 5rem 2rem 2.5rem 2rem;
+    padding: 5rem 2rem 2.25rem 2rem;
     border-radius: .5rem;
     -webkit-border-radius: .5rem;
     -moz-border-radius: .5rem;
@@ -287,4 +298,18 @@ main .stat{
 .feature h3{
     font-size: 1.375rem;
     margin-bottom: 1rem;
+}
+
+/*===========
+----boost----
+============*/
+
+main .boost{
+    background: url(./images/bg-boost-mobile.svg) no-repeat, var(--dark-violet);
+    padding: 5rem 1.5rem;
+}
+.boost h2{
+    color: white;
+    font-size: 1.625rem;
+    margin-bottom: 1.25rem;
 }
