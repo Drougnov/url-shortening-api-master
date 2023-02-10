@@ -6,8 +6,8 @@
 }
 :root{
     --gray: hsl(0, 0%, 75%);
-    --grayish-violet: hsl(257, 7%, 63%);
-    --very-dark-blue: hsl(255, 11%, 22%);
+    --grayish-violet: hsl(257, 7%, 63%);  /*color*/
+    --very-dark-blue: hsl(255, 11%, 22%); /*headings*/
     --very-dark-violet: hsl(260, 8%, 14%);
     --cyan: hsl(180, 66%, 49%);
     --dark-violet: hsl(257, 27%, 26%);
@@ -24,6 +24,9 @@
 h1,h2,h3{
     color: var(--very-dark-blue);
     line-height: 1.15;
+}
+p{
+    line-height: 1.75;
 }
 html{
     overflow-x: hidden;
@@ -220,4 +223,68 @@ nav.active .hamburger::after{
 }
 .header__text-cta{
     margin-top: 1.5rem;
+}
+
+
+/*---------=====main=====---------*/
+
+
+main{
+    background: hsl(230, 25%, 95%);
+    padding: 0 1.5rem;
+}
+
+/*==========
+----form----
+===========*/
+
+/*===========
+----state----
+============*/
+
+main .stat{
+    padding: 5rem 0;
+    font-size: 1rem;
+}
+.stat h2{
+    font-size: 1.625rem;
+    margin-bottom: 1.25rem;
+}
+.stat__features{
+    display: grid;
+    gap: 6rem;
+    margin-top: 6rem;
+}
+.stat__features .feature{
+    font-size: 15px;
+    background: white;
+    padding: 5rem 2rem 2.5rem 2rem;
+    border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+    position: relative;
+}
+.feature__img{
+    position: absolute;
+    top: -45px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90px;
+    height: 90px;
+    background: var(--dark-violet);
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.feature h3{
+    font-size: 1.375rem;
+    margin-bottom: 1rem;
 }
