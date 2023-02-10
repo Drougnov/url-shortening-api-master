@@ -313,3 +313,58 @@ main .boost{
     font-size: 1.625rem;
     margin-bottom: 1.25rem;
 }
+
+
+/*---------=====footer=====---------*/
+
+
+footer{
+    background: var(--very-dark-violet);
+}
+.footer__grid{
+    display: grid;
+    gap: 2.5rem;
+    padding: 3rem 0;
+}
+.footer__grid .footer__logo{
+    filter: invert(99%) sepia(3%) saturate(452%) hue-rotate(290deg) brightness(150%) contrast(100%);
+    -webkit-filter: invert(99%) sepia(3%) saturate(452%) hue-rotate(290deg) brightness(150%) contrast(100%);
+}
+.footer__grid .footer__middle{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.footer__middle .footer__list{
+    list-style-type: none;
+    display: grid;
+    gap: .25rem;
+}
+.footer__list li:first-child{
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: .5rem;
+}
+.footer__list li a{
+    color: var(--grayish-violet);
+    font-size: 15px;
+    text-decoration: none;
+}
+.footer__grid .footer__media{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+.footer__media li a{
+    color: white;
+    font-size: 24px;
+}
+.footer__attribution{
+    font-size: 12px;
+    margin-bottom: 1.5rem;
+}
+.footer__attribution a{
+    color: var(--cyan);
+}
