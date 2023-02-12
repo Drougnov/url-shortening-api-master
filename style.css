@@ -368,3 +368,28 @@ footer{
 .footer__attribution a{
     color: var(--cyan);
 }
+
+
+/*---------=====media-queries=====---------*/
+
+
+@media(min-width: 750px){
+    nav{
+        padding: 2.5rem 3rem 1.5rem 3rem;
+    }
+    .nav__links{
+        width: calc(100% - 6rem);
+    }
+    .header__img{
+        padding: 0 3rem;
+    }
+    .header__img img{
+        width: 100%;
+    }
+    .header__text{
+        padding: 3rem;
+    }
+    main .stat{
+        padding: 5rem 3rem;
+    }
+}
