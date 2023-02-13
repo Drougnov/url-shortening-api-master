@@ -252,6 +252,7 @@ main .stat{
 }
 .stat__features{
     display: grid;
+    place-items: center;
     gap: 6rem;
     margin-top: 6rem;
     position: relative;
@@ -259,10 +260,6 @@ main .stat{
 .stat__features::before{
     position: absolute;
     content: '';
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
     width: .5rem;
     height: 100%;
     background: var(--cyan);
@@ -396,18 +393,28 @@ footer{
 }
 
 @media(min-width: 1000px){
+    body{
+        font-size: 1rem;
+        text-align: left;
+    }
     nav{
         align-items: center;
         gap: 3rem;
+        padding: 2.5rem 3rem 5rem 3rem;
+    }
+    .nav__logo{
+        height: 33px;
     }
     .nav__links{
         flex-basis: 100%;
         position: unset;
         width: auto;
+        background: transparent;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 0;
+        box-shadow: none;
         transform: translateX(0);
         -webkit-transform: translateX(0);
         -moz-transform: translateX(0);
@@ -426,11 +433,55 @@ footer{
     .nav__links-register{
         flex-direction: row;
         align-items: center;
+        gap: 2rem;
     }
     .nav__links-register a{
         color: var(--grayish-violet);
     }
+    .nav__links-register .sign-up{
+        padding: .5rem 1.5rem;
+    }
     .nav__menu{
         display: none;
+    }
+
+    header{
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .header__img img{
+        width: 150%;
+    }
+    .header__text h1{
+        font-size: 3.5rem;
+        margin-bottom: 0;
+    }
+    .cta{
+        font-size: 1rem;
+    }
+    .header__text-cta{
+        padding: .5rem 1.5rem;
+        margin: 2rem 0;
+    }
+
+    .stat h2,
+    .stat > p{
+        max-width: 30rem;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .stat__features{
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+    }
+    .stat__features::before{
+        width: 100%;
+        height: .5rem;
+    }
+    .feature-two{
+        margin-top: 5.625rem;
+    }
+    .feature-three{
+        margin-top: 11.25rem;
     }
 }
