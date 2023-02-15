@@ -339,7 +339,7 @@ footer{
     display: grid;
     gap: .25rem;
 }
-.footer__list li:first-child{
+.footer__list-title{
     color: white;
     font-size: 15px;
     font-weight: 700;
@@ -396,10 +396,10 @@ footer{
 
 @media(min-width: 1000px){
     body{
-        font-size: 1rem;
         text-align: left;
     }
     nav{
+        font-size: 1rem;
         align-items: center;
         gap: 3rem;
         padding: 2.5rem 3rem 5rem 3rem;
@@ -450,6 +450,7 @@ footer{
     header{
         display: flex;
         flex-direction: row-reverse;
+        align-items: center;
     }
     .header__img img{
         width: 150%;
@@ -510,5 +511,44 @@ footer{
     .footer__grid .footer__middle{
         flex-direction: row;
         gap: 5rem;
+    }
+}
+
+@media(min-width: 1246px){
+    body{
+        font-size: 22px;
+    }
+    nav{
+        padding: 2.5rem 10rem 5rem 10rem;
+    }
+    .header__img{
+        padding: 0 10rem 0 4rem;
+    }
+    .header__text{
+        padding: 3rem 2rem 3rem 10rem;
+    }
+    .header__text h1{
+        font-size: 4.75rem;
+    }
+    .header__text-cta{
+        font-size: 18px;
+        padding: .75rem 2.5rem;
+    }
+
+    main .stat{
+        padding: 5rem 10rem;
+    }
+
+    .footer__grid{
+        padding: 3rem 10rem;
+    }
+    .footer__grid .footer__middle{
+        align-items: flex-start;
+    }
+    .footer__middle .footer__list{
+        gap: 0;
+    }
+    .footer__list-title{
+        margin-bottom: 1rem;
     }
 }
