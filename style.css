@@ -231,6 +231,7 @@ nav.active .hamburger::after{
 
 
 main{
+    padding: 0 1.5rem 5rem 1.5rem;
     background: hsl(230, 25%, 95%);
 }
 
@@ -238,12 +239,61 @@ main{
 ----form----
 ===========*/
 
+
+main .url__form{
+    background: url(./images/bg-shorten-mobile.svg) no-repeat, var(--dark-violet);
+    background-position: right top;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    padding: 1.5rem;
+    border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+    margin-top: -85px;
+}
+.url__input-field{
+    width: 100%;
+}
+.url__input,
+.url__submit{
+    height: 3rem;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    border-radius: .3rem;
+    -webkit-border-radius: .3rem;
+    -moz-border-radius: .3rem;
+    -ms-border-radius: .3rem;
+    -o-border-radius: .3rem;
+}
+.url__input{
+    width: 100%;
+    padding-left: 1rem;
+}
+.url__error{
+    color: orangered;
+    font-size: .7rem;
+    font-style: italic;
+    text-align: left;
+    margin-top: .25rem;
+}
+.url__submit{
+    color: white;
+    background: var(--cyan);
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
 /*===========
 ----state----
 ============*/
 
 main .stat{
-    padding: 5rem 1.5rem;
     font-size: 1rem;
 }
 .stat h2{
