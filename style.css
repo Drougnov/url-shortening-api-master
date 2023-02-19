@@ -291,18 +291,58 @@ main .url__form{
     font-weight: 700;
 }
 .url__list-container{
-    width: 100%;
     display: grid;
+    grid-template-columns: 1fr;
     gap: 1.5rem;
     padding: 1.5rem 1.5rem 5rem 1.5rem;
-    margin: 0 1.5rem;
 }
 .url__list{
-    width: 100%;
     list-style-type: none;
     background: white;
+    font-size: 1rem;
     text-align: left;
-    padding: 1rem;
+    padding: .75rem 1rem;
+    border-radius: .3rem;
+    -webkit-border-radius: .3rem;
+    -moz-border-radius: .3rem;
+    -ms-border-radius: .3rem;
+    -o-border-radius: .3rem;
+}
+.url__list .old-link{
+    color: var(--very-dark-blue);
+    white-Space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+}
+.url__list hr{
+    display: block;
+    border: none;
+    border-top: 1px solid var(--gray);
+    margin: .5rem -1rem;
+}
+.url__list-short{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.url__list-short a{
+    color: var(--cyan);
+    text-decoration: none;
+}
+.url__list-short button{
+    height: 2.5rem;
+    color: white;
+    background: var(--cyan);
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    border: none;
+    border-radius: .3rem;
+    -webkit-border-radius: .3rem;
+    -moz-border-radius: .3rem;
+    -ms-border-radius: .3rem;
+    -o-border-radius: .3rem;
 }
 
 /*===========
@@ -466,6 +506,26 @@ footer{
     main .stat{
         padding: 5rem 3rem;
         margin: 0;
+    }
+
+    .url__list-container{
+        padding: 1.5rem 3rem 5rem 3rem;
+    }
+    .url__list{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .url__list hr{
+        display: none;
+    }
+    .url__list-short{
+        flex-direction: row;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    .url__list-short button{
+        padding: .5rem 2rem;
     }
 }
 
@@ -632,6 +692,9 @@ footer{
 
     main .url__form{
         margin: -70px 10rem 0 10rem;
+    }
+    .url__list-container{
+        padding: 1.5rem 10rem 5rem 10rem;
     }
 
     main .stat{
