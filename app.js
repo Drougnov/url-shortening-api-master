@@ -24,20 +24,38 @@ const errorMessages = {
     10: "The URL cannot be shortened. Please try a different URL.",
 };
 
+function deleteListItem(deleteBtn) {
+    const listItem = deleteBtn.parentElement;
+    listItem.remove();
+    console.log(listItem);
+}
+
+listContainer.addEventListener("click", (e) => {
+    if (e.target.classList.contains("delete-btn")) {
+        deleteListItem(e.target);
+    }
+});
+
 urlForm.addEventListener("submit", (e) => {
     e.preventDefault();
     fetch(`https://api.shrtco.de/v2/shorten?url=${urlInput.value}`)
         .then((res) => res.json())
         .then((data) => {
             if (!data.ok) {
+                //style change
                 urlInput.style.border = "2px solid hsl(0, 87%, 67%)";
                 urlError.style.display = "block";
+
                 const errorCode = data.error_code;
                 const errorMessage =
                     errorMessages[errorCode] ||
                     "An unknown error occurred. Please try again later.";
                 urlError.textContent = errorMessage;
             } else {
+                //style change
+                urlInput.style.border = "none";
+                urlError.style.display = "none";
+
                 listContainer.innerHTML += `<li class="url__list">
                 <p class="old-link">${urlInput.value}</p>
                 <hr />
@@ -45,8 +63,9 @@ urlForm.addEventListener("submit", (e) => {
                     <a href="${data.result.full_short_link}" class="short-link"
                         >${data.result.full_short_link}</a
                     >
-                    <button type="button" class="copy-link" onclick="navigator.clipboard.writeText('${data.result.full_short_link}')">Copy</button>
+                    <button type="button" class="copy-btn" onclick="navigator.clipboard.writeText('${data.result.full_short_link}')">Copy</button>
                 </div>
+                <button type="button" class="delete-btn">❌</button>
             </li>`;
                 urlInput.value = "";
             }
