@@ -277,17 +277,32 @@ main .url__form {
     padding-left: 1rem;
 }
 .url__error {
-    color: orangered;
+    display: none;
+    color: hsl(0, 87%, 67%);
     font-size: 0.7rem;
     font-style: italic;
     text-align: left;
-    margin-top: 0.25rem;
+    margin-top: 0.5rem;
 }
 .url__submit {
     color: white;
     background: var(--cyan);
     font-size: 1.125rem;
     font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+}
+.url__submit:hover,
+.url__list-short button:hover {
+    background: hsl(180, 66%, 69%);
+}
+.url__submit:active,
+.url__list-short button:active {
+    background: hsl(257, 27%, 26%);
 }
 .url__list-container {
     display: grid;
@@ -342,6 +357,12 @@ main .url__form {
     -ms-border-radius: 0.3rem;
     -o-border-radius: 0.3rem;
     border-radius: 0.3rem;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
 }
 
 /*===========
