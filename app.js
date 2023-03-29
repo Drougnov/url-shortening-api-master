@@ -1,15 +1,71 @@
 const nav = document.querySelector("nav");
 const toggleMenu = document.querySelector(".nav__menu");
-const urlError = document.querySelector(".url__error");
-const listContainer = document.querySelector(".url__list-container");
 
+// toggle moblie navigation
 toggleMenu.addEventListener("click", () => {
     nav.classList.toggle("active");
+});
+
+const getStartedBtn = document.querySelector("#get-started-btn");
+const shortenLinkInput = document.querySelector("#shorten-link-input");
+
+const mediaQuery = window.matchMedia("(max-width: 1000x)");
+let inputPosition = 0;
+
+const updatePosition = () => {
+    if (mediaQuery.matches) {
+        inputPosition =
+            window.scrollY + shortenLinkInput.getBoundingClientRect().top - 125;
+    } else {
+        inputPosition =
+            window.scrollY + shortenLinkInput.getBoundingClientRect().top - 65;
+    }
+};
+
+//Autofocus input field on header button clicked
+getStartedBtn.addEventListener("click", () => {
+    updatePosition();
+    window.scrollTo({
+        top: inputPosition,
+    });
+    shortenLinkInput.focus();
+});
+
+const listContainer = document.querySelector(".url__list-container");
+
+// Load list items from localStorage
+if (localStorage.getItem("listItems")) {
+    listContainer.innerHTML = localStorage.getItem("listItems");
+}
+
+// Delete list on button click and remove from localStorage
+listContainer.addEventListener("click", (e) => {
+    if (e.target.classList.contains("delete-btn")) {
+        const listItem = e.target.parentElement;
+        const listItems = listContainer.innerHTML;
+
+        // Check if the deleted item exists in the list before removing it from localStorage
+        if (listItems.includes(listItem.outerHTML)) {
+            const updatedListItems = listItems.replace(listItem.outerHTML, "");
+            localStorage.setItem("listItems", updatedListItems);
+        }
+
+        // Remove the deleted item from the list
+        listItem.remove();
+    }
+});
+
+//delete list on button click
+listContainer.addEventListener("click", (e) => {
+    if (e.target.classList.contains("delete-btn")) {
+        e.target.parentElement.remove();
+    }
 });
 
 const urlForm = document.querySelector(".url__form");
 const urlInput = document.querySelector(".url__input");
 const urlSubmit = document.querySelector(".url__submit");
+const urlError = document.querySelector(".url__error");
 
 const errorMessages = {
     1: "No URL specified. Please enter a valid URL.",
@@ -24,25 +80,12 @@ const errorMessages = {
     10: "The URL cannot be shortened. Please try a different URL.",
 };
 
-function deleteListItem(deleteBtn) {
-    const listItem = deleteBtn.parentElement;
-    listItem.remove();
-    console.log(listItem);
-}
-
-listContainer.addEventListener("click", (e) => {
-    if (e.target.classList.contains("delete-btn")) {
-        deleteListItem(e.target);
-    }
-});
-
 urlForm.addEventListener("submit", (e) => {
     e.preventDefault();
     fetch(`https://api.shrtco.de/v2/shorten?url=${urlInput.value}`)
         .then((res) => res.json())
         .then((data) => {
             if (!data.ok) {
-                //style change
                 urlInput.style.border = "2px solid hsl(0, 87%, 67%)";
                 urlError.style.display = "block";
 
@@ -52,7 +95,6 @@ urlForm.addEventListener("submit", (e) => {
                     "An unknown error occurred. Please try again later.";
                 urlError.textContent = errorMessage;
             } else {
-                //style change
                 urlInput.style.border = "none";
                 urlError.style.display = "none";
 
@@ -68,6 +110,13 @@ urlForm.addEventListener("submit", (e) => {
                 <button type="button" class="delete-btn">❌</button>
             </li>`;
                 urlInput.value = "";
+
+                // Save the updated list to localStorage
+                const listItems = listContainer.innerHTML;
+                localStorage.setItem("listItems", listItems);
             }
         });
 });
+
+const listItems = listContainer.innerHTML;
+localStorage.setItem("listItems", listItems);
