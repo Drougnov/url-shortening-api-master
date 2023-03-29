@@ -9,6 +9,7 @@ toggleMenu.addEventListener("click", () => {
 const getStartedBtn = document.querySelector("#get-started-btn");
 const shortenLinkInput = document.querySelector("#shorten-link-input");
 
+// get input field's position on different screen size
 const mediaQuery = window.matchMedia("(max-width: 1000x)");
 let inputPosition = 0;
 
@@ -32,6 +33,7 @@ getStartedBtn.addEventListener("click", () => {
 });
 
 const listContainer = document.querySelector(".url__list-container");
+let lastCopiedButton = null;
 
 // Load list items from localStorage
 if (localStorage.getItem("listItems")) {
@@ -52,6 +54,21 @@ listContainer.addEventListener("click", (e) => {
 
         // Remove the deleted item from the list
         listItem.remove();
+    } else if (e.target.classList.contains("copy-btn")) {
+        // Change the copied button's style
+        const copyButton = e.target;
+        copyButton.textContent = "Copied";
+        copyButton.style.background = "hsl(260, 8%, 14%)";
+
+        // Reset the last button's style
+        if (lastCopiedButton && lastCopiedButton !== copyButton) {
+            //check if there was one copied button before
+            lastCopiedButton.textContent = "Copy";
+            lastCopiedButton.style.background = "hsl(180, 66%, 49%)";
+        }
+
+        // Remember the last copied button
+        lastCopiedButton = copyButton;
     }
 });
 
@@ -86,7 +103,7 @@ urlForm.addEventListener("submit", (e) => {
         .then((res) => res.json())
         .then((data) => {
             if (!data.ok) {
-                urlInput.style.border = "2px solid hsl(0, 87%, 67%)";
+                urlInput.style.border = "3px solid hsl(0, 87%, 67%)";
                 urlError.style.display = "block";
 
                 const errorCode = data.error_code;
@@ -117,6 +134,3 @@ urlForm.addEventListener("submit", (e) => {
             }
         });
 });
-
-const listItems = listContainer.innerHTML;
-localStorage.setItem("listItems", listItems);
