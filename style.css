@@ -3,6 +3,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 :root {
     --gray: hsl(0, 0%, 75%);
@@ -216,15 +217,19 @@ header {
     color: white;
     background: var(--cyan);
     font-size: 1.125rem;
+    font-family: "Poppins", sans-serif;
     font-weight: 700;
     text-decoration: none;
     padding: 0.75rem 3rem;
     margin: 0 auto;
+    border: none;
+    outline: none;
     -webkit-border-radius: 1.5rem;
     -moz-border-radius: 1.5rem;
     -ms-border-radius: 1.5rem;
     -o-border-radius: 1.5rem;
     border-radius: 1.5rem;
+    cursor: pointer;
 }
 .header__text-cta {
     margin-top: 1.5rem;
@@ -298,7 +303,7 @@ main .url__form {
 }
 .url__submit:hover,
 .url__list-short .copy-btn:hover {
-    background: hsl(180, 66%, 69%);
+    background: hsl(180, 66%, 59%);
 }
 .url__submit:active,
 .url__list-short .copy-btn:active {
